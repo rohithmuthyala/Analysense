@@ -30,6 +30,13 @@ def main():
     df = load_data()
 
     st.title("Marketing Campaign Report")
+        
+        header_html = "<img src='data:image/png;base64,{}' class='img-fluid'>".format(
+    img_to_bytes("header.png")
+)
+st.markdown(
+    header_html, unsafe_allow_html=True,
+)
 
     # add sth into sidebar
     text = """
