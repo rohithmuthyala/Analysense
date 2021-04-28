@@ -1,5 +1,6 @@
 import pandas as pd
 import streamlit as st
+import os
 import time
 import plotly.express as px
 from PIL import Image
@@ -53,6 +54,14 @@ def main():
 
     st.sidebar.subheader("Explore Data")
     df = load_data()
+    
+    filename = st.text_input('Enter a file path:')
+try:
+    with open(filename) as input:
+        st.text(input.read())
+except FileNotFoundError:
+    st.error('File not found.')
+
     st.header('Overall Performance')
     status = st.sidebar.selectbox("Overall Perfomance:",["Overall Visits","Overall Profits"])
     if status == "Overall Visits":
